@@ -164,8 +164,9 @@ dialog::backdrop{background:rgba(27,23,20,.5)}
 .field input,.field textarea{width:100%;border-radius:12px;border:1.5px solid var(--line);background:#fff;padding:12px 14px;font:inherit}
 .field input:focus,.field textarea:focus{outline:none;border-color:var(--or)}
 .note{font-size:13px;color:var(--soft)}
-.vaciar{justify-self:start;background:none;border:0;color:var(--or-d);font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:3px;padding:4px 0}
-.vaciar:hover{color:var(--ink)}
+.vaciar{justify-self:start;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:12px;border:1.5px solid var(--or);background:#fff;color:var(--or-d);font-weight:700;font-size:15px;transition:background .15s,color .15s}
+.vaciar svg{width:18px;height:18px}
+.vaciar:hover{background:var(--or);color:#fff}
 
 /* animaciones (suaves; se apagan si el celular tiene "reducir movimiento") */
 @keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -367,7 +368,7 @@ dialog::backdrop{background:rgba(27,23,20,.5)}
   <form class="sheet" id="form" method="dialog">
     <div class="sheet-h"><h2 id="sheet-t">Tu pedido</h2><button class="x" type="button" id="close" aria-label="Cerrar">×</button></div>
     <ul class="lines" id="lines"></ul>
-    <button class="vaciar" type="button" id="vaciar">Vaciar pedido</button>
+    <button class="vaciar" type="button" id="vaciar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v6M14 11v6"/></svg>Vaciar pedido</button>
     <div class="total"><span>Total</span><span id="total">$0</span></div>
     <div class="seg" role="radiogroup" aria-label="Forma de entrega">
       <label><input type="radio" name="modo" value="Delivery" checked><span>Delivery</span></label>
