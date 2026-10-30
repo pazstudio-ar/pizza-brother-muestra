@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Pizza Brother · Carta y pedidos | Pizza a la piedra en Barracas</title>
+<meta name="description" content="Carta de Pizza Brother: 37 variedades de pizza a la piedra, calzones, empanadas y comida casera. Delivery sin cargo en Barracas. Pedí por WhatsApp.">
+<meta name="theme-color" content="#FFF8EE">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFF8EE; --card:#FFFFFF; --ink:#1B1714; --soft:#5E554D; --line:#EEE2D2;
+  --or:#E35D20; --or-d:#B9430D; --or-l:#FFE7D6; --ok:#1F8A4C;
+  --r:16px; --head:"Bricolage Grotesque","Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:132px}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.5 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:96px}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--or);outline-offset:2px;border-radius:8px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+
+/* barra superior */
+.top{position:sticky;top:0;z-index:30;background:rgba(255,248,238,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:12px;height:60px}
+.top img{height:42px;width:auto;background:#fff;border-radius:10px;padding:3px 5px;border:1px solid var(--line)}
+.status{margin-left:auto;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:6px 12px;border-radius:99px;background:#fff;border:1px solid var(--line);white-space:nowrap}
+.status i{width:8px;height:8px;border-radius:50%;background:#B9B0A6}
+.status.open i{background:var(--ok);box-shadow:0 0 0 4px rgba(31,138,76,.15)}
+.top .call{display:none;font-weight:600;font-size:14px;text-decoration:none}
+
+/* portada */
+.hero{position:relative;overflow:hidden}
+.hero .wrap{display:grid;gap:24px;padding-top:32px;padding-bottom:40px}
+.hero-logo{background:#fff;border-radius:20px;border:1px solid var(--line);padding:12px;max-width:180px;justify-self:start;position:relative;z-index:1}
+.hero h1{font:800 clamp(38px,9vw,68px)/.98 var(--head);letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--or)}
+.hero .lead{font-size:18px;color:var(--soft);margin-top:16px;max-width:30em}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;font-weight:700;font-size:14px;padding:8px 14px;border-radius:99px;margin-bottom:18px}
+.badge svg{width:18px;height:18px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 22px;border-radius:14px;font-weight:700;text-decoration:none;border:0;transition:transform .15s,background .15s}
+.btn:active{transform:scale(.97)}
+.btn-or{background:var(--or);color:#fff}
+.btn-or:hover{background:var(--or-d)}
+.btn-ghost{background:#fff;border:1.5px solid var(--ink)}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:14px}
+.fact b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--or-d);margin-bottom:2px}
+/* recurso visual: lunares de la porción del logo */
+.dots-bg{position:absolute;right:-60px;top:-40px;width:320px;height:320px;z-index:0;opacity:.9;pointer-events:none}
+
+/* frase */
+.motto{background:var(--or);color:#fff;overflow:hidden}
+.motto p{font:800 clamp(17px,4.6vw,30px)/1.25 var(--head);padding:16px;text-align:center;letter-spacing:-.01em}
+.motto span{display:inline-block}
+.motto span{opacity:.75}
+
+/* navegación de categorías */
+.cats{position:sticky;top:60px;z-index:25;background:var(--bg);border-bottom:1px solid var(--line)}
+.cats .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:12px;padding-bottom:12px;scrollbar-width:none}
+.cats .wrap::-webkit-scrollbar{display:none}
+.cats a{flex:none;text-decoration:none;font-weight:600;font-size:14px;padding:8px 14px;border-radius:99px;background:#fff;border:1px solid var(--line)}
+.cats a.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.search{padding-top:20px}
+.search input{width:100%;height:50px;border-radius:14px;border:1.5px solid var(--line);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none' stroke='%235E554D' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") 14px center no-repeat;padding:0 16px 0 44px;font:inherit}
+.search input:focus{outline:none;border-color:var(--or)}
+.noresult{display:none;color:var(--soft);padding:24px 0}
+
+/* secciones */
+.sec{padding-top:40px}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:16px}
+.sec h2{font:800 clamp(28px,6vw,40px)/1 var(--head);letter-spacing:-.02em}
+.sec-h small{color:var(--soft);font-size:14px}
+ul{list-style:none}
+
+.combos{display:grid;gap:12px}
+.combo{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:8px}
+.combo h3{font-size:17px;font-weight:600;line-height:1.35}
+.combo .row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:4px}
+.tag{align-self:flex-start;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--or-d);background:var(--or-l);padding:3px 8px;border-radius:6px}
+.amt{font-weight:700;font-variant-numeric:tabular-nums}
+.combo .amt{font:800 22px/1 var(--head)}
+
+.list{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.item{padding:16px;border-top:1px solid var(--line)}
+.item:first-child{border-top:0}
+.pz{display:grid;gap:12px}
+.pz h3{font-size:17px;font-weight:700;display:flex;align-items:center;gap:10px}
+.num{font:700 12px/1 Inter,sans-serif;color:var(--or-d);background:var(--or-l);border-radius:6px;padding:4px 6px;font-variant-numeric:tabular-nums}
+.pz p{color:var(--soft);font-size:14px;margin-top:4px}
+.prices{display:flex;gap:8px}
+/* tamaño: etiqueta arriba, precio abajo y el "+" a la derecha (entra completo en celular) */
+.sz{flex:1;min-width:0;display:grid;grid-template-columns:1fr auto;column-gap:8px;align-items:center;background:var(--bg);border-radius:12px;padding:6px 6px 6px 12px}
+.sz .lbl{grid-column:1;grid-row:1;font-size:12px;color:var(--soft);font-weight:600;line-height:1.2}
+.sz .amt{grid-column:1;grid-row:2;line-height:1.3}
+.sz .add{grid-column:2;grid-row:1 / 3}
+.ask{font-size:14px;color:var(--soft);font-style:italic;padding:8px 0}
+.add{flex:none;width:40px;height:40px;border-radius:10px;border:0;background:var(--or);color:#fff;font-size:24px;font-weight:600;line-height:1;display:grid;place-items:center;transition:transform .15s,background .15s}
+.add:hover{background:var(--or-d)}
+.add.pop{animation:pop .35s}
+@keyframes pop{50%{transform:scale(1.18)}}
+.sm{display:flex;align-items:center;gap:10px}
+.sm h3{font-size:16px;font-weight:600}
+.sm .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(4px)}
+
+.more{margin-top:48px;background:var(--ink);color:#fff;border-radius:24px;padding:28px 20px}
+.more h2{font:800 28px/1.05 var(--head)}
+.more p{color:#D6CEC5;margin-top:8px}
+.more ul{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.more li{font-size:14px;font-weight:600;padding:7px 12px;border-radius:99px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14)}
+
+.how{display:grid;gap:12px;margin-top:16px}
+.how li{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.how b{display:block;font:800 20px/1.1 var(--head);margin-bottom:4px}
+.how span{color:var(--soft);font-size:15px}
+.datos{display:grid;gap:12px;margin-top:12px}
+.datos div{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.datos h3{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--or-d);margin-bottom:6px}
+.datos a{font-weight:600}
+
+footer{margin-top:56px;border-top:1px solid var(--line);padding:24px 0;color:var(--soft);font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+
+/* barra de pedido */
+.bar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:40;max-width:560px;margin:0 auto;display:flex;align-items:center;gap:12px;background:var(--ink);color:#fff;border-radius:18px;padding:10px 10px 10px 18px;box-shadow:0 12px 32px rgba(27,23,20,.25);transform:translateY(140%);transition:transform .3s}
+.bar.show{transform:none}
+.bar .t{font-size:13px;color:#D6CEC5}
+.bar .t b{display:block;font:800 20px/1.1 var(--head);color:#fff}
+.bar .btn{margin-left:auto;height:46px}
+.wa-float{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:39;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.18);transition:opacity .2s}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+.has-cart .wa-float,.wa-float:not(.show){opacity:0;pointer-events:none}
+
+/* panel del pedido */
+dialog{border:0;padding:0;margin:auto auto 0;width:100%;max-width:560px;max-height:92vh;border-radius:24px 24px 0 0;background:var(--bg);color:var(--ink)}
+dialog::backdrop{background:rgba(27,23,20,.5)}
+.sheet{padding:20px 16px calc(20px + env(safe-area-inset-bottom,0px));display:grid;gap:16px}
+.sheet-h{display:flex;align-items:center;justify-content:space-between}
+.sheet h2{font:800 26px/1 var(--head)}
+.x{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:20px}
+.lines{background:#fff;border:1px solid var(--line);border-radius:var(--r)}
+.line{display:flex;align-items:center;gap:10px;padding:12px 14px;border-top:1px solid var(--line)}
+.line:first-child{border-top:0}
+.line .n{flex:1;font-size:15px;font-weight:600;line-height:1.3}
+.line .n small{display:block;color:var(--soft);font-weight:500}
+.qty{display:flex;align-items:center;gap:6px}
+.qty button{width:32px;height:32px;border-radius:8px;border:1px solid var(--line);background:var(--bg);font-size:18px}
+.qty span{min-width:18px;text-align:center;font-weight:700}
+.total{display:flex;justify-content:space-between;font:800 22px/1 var(--head)}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg label{position:relative}
+.seg input{position:absolute;opacity:0}
+.seg span{display:block;text-align:center;padding:12px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font-weight:600}
+.seg input:checked+span{border-color:var(--or);background:var(--or-l);color:var(--or-d)}
+.seg input:focus-visible+span{outline:3px solid var(--or);outline-offset:2px}
+.field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+.field input,.field textarea{width:100%;border-radius:12px;border:1.5px solid var(--line);background:#fff;padding:12px 14px;font:inherit}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--or)}
+.note{font-size:13px;color:var(--soft)}
+
+@media (min-width:760px){
+  body{padding-bottom:40px}
+  .top .call{display:inline}
+  .status{margin-left:0}
+  .top .wrap{justify-content:space-between}
+  .hero .wrap{grid-template-columns:1.25fr 1fr;align-items:center;padding-top:56px;padding-bottom:64px}
+  .hero-logo{order:2;max-width:400px;padding:28px;justify-self:center}
+  .dots-bg{width:520px;height:520px;right:-120px;top:-80px}
+  .combos{grid-template-columns:repeat(2,1fr)}
+  .pz{grid-template-columns:1fr 320px;align-items:center;gap:24px}
+  .how,.datos{grid-template-columns:repeat(3,1fr)}
+  .more{padding:40px}
+  dialog{margin:auto;border-radius:24px}
+}
+@media (min-width:1000px){.combos{grid-template-columns:repeat(4,1fr)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#inicio"><img src="logo.png" alt="Pizza Brother" width="51" height="40"></a>
+    <span class="status" id="status"><i></i><span>Abierto todos los días</span></span>
+    <a class="call" href="tel:+541143038606">Llamanos: 4303-8606</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <svg class="dots-bg" viewBox="0 0 200 200" aria-hidden="true">
+      <path d="M200 0 L200 200 L10 40 Z" fill="#FFE7D6"/>
+      <g fill="#E35D20" opacity=".9"><circle cx="160" cy="40" r="14"/><circle cx="182" cy="96" r="10"/><circle cx="120" cy="70" r="8"/><circle cx="176" cy="150" r="12"/><circle cx="140" cy="112" r="6"/><circle cx="80" cy="52" r="5"/></g>
+    </svg>
+    <div class="wrap">
+      <div class="hero-logo"><img src="logo.png" alt="Logo de Pizza Brother" width="460" height="358"></div>
+      <div style="position:relative;z-index:1">
+        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>Delivery sin cargo en Barracas</span>
+        <h1>Pizza a la piedra, <em>como en casa.</em></h1>
+        <p class="lead">37 variedades de pizza, calzones, empanadas y comida casera. Elegí y armá tu pedido.</p>
+        <div class="ctas">
+          <a class="btn btn-or" href="#carta">Ver la carta</a>
+          <a class="btn btn-ghost" href="https://wa.me/5491169703006?text=Hola%20Pizza%20Brother!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+        </div>
+        <div class="facts">
+          <div class="fact"><b>Horarios</b>Todos los días<br>11:30 a 16 h<br>19:30 a 00 h</div>
+          <div class="fact"><b>Dónde</b>Av. Vieytes 1273<br>Barracas, CABA</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="motto"><p>No ofrecemos promoción. <span>Le ofrecemos calidad.</span></p></div>
+
+  <nav class="cats" aria-label="Categorías de la carta">
+    <div class="wrap">
+      <a href="#combos">Combos</a>
+      <a href="#pizzas">Pizzas</a>
+      <a href="#rellenas">Rellenas y calzones</a>
+      <a href="#empanadas">Empanadas</a>
+      <a href="#mas">Más platos</a>
+      <a href="#pedir">Cómo pedir</a>
+    </div>
+  </nav>
+
+  <div class="wrap" id="carta">
+    <div class="search"><input type="search" id="q" placeholder="Buscá: napolitana, calzone, humita…" aria-label="Buscar en la carta"></div>
+    <p class="noresult" id="noresult">No encontramos ese plato. Probá con otra palabra o escribinos por WhatsApp.</p>
+
+    <section class="sec" id="combos">
+      <div class="sec-h"><h2>Combos</h2><small>Para compartir</small></div>
+      <ul class="combos">
+<li class="combo"><span class="tag">Combo</span><h3>2 Muzzarella grandes + 1 Fugazzetta grande + 4 fainás</h3><div class="row"><span class="amt">$45.000</span><button class="add" type="button" data-name="Combo: 2 Muzzarella grandes + 1 Fugazzetta grande + 4 fainás" data-size="" data-price="45000" aria-label="Agregar Combo: 2 Muzzarella grandes + 1 Fugazzetta grande + 4 fainás  al pedido">+</button></div></li>
+<li class="combo"><span class="tag">Combo</span><h3>Jamón y morrones + Fugazzetta + 3 fainás</h3><div class="row"><span class="amt">$38.000</span><button class="add" type="button" data-name="Combo: Jamón y morrones + Fugazzetta + 3 fainás" data-size="" data-price="38000" aria-label="Agregar Combo: Jamón y morrones + Fugazzetta + 3 fainás  al pedido">+</button></div></li>
+<li class="combo"><span class="tag">Combo</span><h3>2 Muzzarella grandes + 4 fainás</h3><div class="row"><span class="amt">$32.000</span><button class="add" type="button" data-name="Combo: 2 Muzzarella grandes + 4 fainás" data-size="" data-price="32000" aria-label="Agregar Combo: 2 Muzzarella grandes + 4 fainás  al pedido">+</button></div></li>
+<li class="combo"><span class="tag">Combo</span><h3>1 Grande de jamón + 1 chica de fugazzetta + agua saborizada</h3><div class="row"><span class="amt">$30.000</span><button class="add" type="button" data-name="Combo: 1 Grande de jamón + 1 chica de fugazzetta + agua saborizada" data-size="" data-price="30000" aria-label="Agregar Combo: 1 Grande de jamón + 1 chica de fugazzetta + agua saborizada  al pedido">+</button></div></li>
+<li class="combo"><span class="tag">Combo</span><h3>Muzzarella grande + Fugazzetta grande + agua saborizada</h3><div class="row"><span class="amt">$30.000</span><button class="add" type="button" data-name="Combo: Muzzarella grande + Fugazzetta grande + agua saborizada" data-size="" data-price="30000" aria-label="Agregar Combo: Muzzarella grande + Fugazzetta grande + agua saborizada  al pedido">+</button></div></li>
+<li class="combo"><span class="tag">Combo</span><h3>1 Muzzarella grande + 6 empanadas + 2 fainás</h3><div class="row"><span class="amt">$29.000</span><button class="add" type="button" data-name="Combo: 1 Muzzarella grande + 6 empanadas + 2 fainás" data-size="" data-price="29000" aria-label="Agregar Combo: 1 Muzzarella grande + 6 empanadas + 2 fainás  al pedido">+</button></div></li>
+<li class="combo"><span class="tag">Combo</span><h3>Muzzarella grande + 4 empanadas + agua saborizada</h3><div class="row"><span class="amt">$27.000</span><button class="add" type="button" data-name="Combo: Muzzarella grande + 4 empanadas + agua saborizada" data-size="" data-price="27000" aria-label="Agregar Combo: Muzzarella grande + 4 empanadas + agua saborizada  al pedido">+</button></div></li>
+<li class="combo"><span class="tag">Combo</span><h3>12 empanadas + agua saborizada</h3><div class="row"><span class="amt">$27.000</span><button class="add" type="button" data-name="Combo: 12 empanadas + agua saborizada" data-size="" data-price="27000" aria-label="Agregar Combo: 12 empanadas + agua saborizada  al pedido">+</button></div></li>
+      </ul>
+    </section>
+
+    <section class="sec" id="pizzas">
+      <div class="sec-h"><h2>Pizzas</h2><small>A la piedra · grande o chica</small></div>
+      <ul class="list">
+<li class="item pz"><div class="info"><h3><span class="num">01</span>De la casa</h3><p>Salsa de tomate, muzzarella, jamón, huevo, palmitos, morrones, salsa golf, orégano y aceitunas negras</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$25.000</span><button class="add" type="button" data-name="De la casa (N.º 01)" data-size="grande" data-price="25000" aria-label="Agregar De la casa (N.º 01) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$20.000</span><button class="add" type="button" data-name="De la casa (N.º 01)" data-size="chica" data-price="20000" aria-label="Agregar De la casa (N.º 01) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">02</span>Muzzarella</h3><p>Salsa de tomate, muzzarella, orégano y aceitunas</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$15.000</span><button class="add" type="button" data-name="Muzzarella (N.º 02)" data-size="grande" data-price="15000" aria-label="Agregar Muzzarella (N.º 02) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$13.000</span><button class="add" type="button" data-name="Muzzarella (N.º 02)" data-size="chica" data-price="13000" aria-label="Agregar Muzzarella (N.º 02) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">03</span>Anchoas</h3><p>Salsa de tomate, filet de anchoa, morrones, orégano y ají molido</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$16.000</span><button class="add" type="button" data-name="Anchoas (N.º 03)" data-size="grande" data-price="16000" aria-label="Agregar Anchoas (N.º 03) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$13.000</span><button class="add" type="button" data-name="Anchoas (N.º 03)" data-size="chica" data-price="13000" aria-label="Agregar Anchoas (N.º 03) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">04</span>Romana</h3><p>Igual a la de anchoas, más muzzarella</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$18.000</span><button class="add" type="button" data-name="Romana (N.º 04)" data-size="grande" data-price="18000" aria-label="Agregar Romana (N.º 04) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$14.000</span><button class="add" type="button" data-name="Romana (N.º 04)" data-size="chica" data-price="14000" aria-label="Agregar Romana (N.º 04) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">05</span>Fugazza</h3><p>Cebollas, aceite de oliva, verdeo, ají, morrón y orégano</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$11.000</span><button class="add" type="button" data-name="Fugazza (N.º 05)" data-size="grande" data-price="11000" aria-label="Agregar Fugazza (N.º 05) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$9.000</span><button class="add" type="button" data-name="Fugazza (N.º 05)" data-size="chica" data-price="9000" aria-label="Agregar Fugazza (N.º 05) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">06</span>Fugazzetta</h3><p>Igual a la fugazza, más muzzarella</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$15.000</span><button class="add" type="button" data-name="Fugazzetta (N.º 06)" data-size="grande" data-price="15000" aria-label="Agregar Fugazzetta (N.º 06) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$13.000</span><button class="add" type="button" data-name="Fugazzetta (N.º 06)" data-size="chica" data-price="13000" aria-label="Agregar Fugazzetta (N.º 06) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">07</span>Jamón</h3><p>Salsa de tomate, jamón, aceite de oliva y aceitunas</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$18.000</span><button class="add" type="button" data-name="Jamón (N.º 07)" data-size="grande" data-price="18000" aria-label="Agregar Jamón (N.º 07) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$15.000</span><button class="add" type="button" data-name="Jamón (N.º 07)" data-size="chica" data-price="15000" aria-label="Agregar Jamón (N.º 07) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">08</span>Jamón y morrones</h3><p>Igual a la de jamón, más morrones</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$20.000</span><button class="add" type="button" data-name="Jamón y morrones (N.º 08)" data-size="grande" data-price="20000" aria-label="Agregar Jamón y morrones (N.º 08) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$16.000</span><button class="add" type="button" data-name="Jamón y morrones (N.º 08)" data-size="chica" data-price="16000" aria-label="Agregar Jamón y morrones (N.º 08) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">09</span>Napolitana</h3><p>Salsa de tomate, muzzarella, tomates en rodajas, ajo y aceitunas</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$20.000</span><button class="add" type="button" data-name="Napolitana (N.º 09)" data-size="grande" data-price="20000" aria-label="Agregar Napolitana (N.º 09) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$16.000</span><button class="add" type="button" data-name="Napolitana (N.º 09)" data-size="chica" data-price="16000" aria-label="Agregar Napolitana (N.º 09) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">10</span>Napolitana especial</h3><p>Igual a la napolitana, más jamón, morrones y aceitunas negras</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$22.000</span><button class="add" type="button" data-name="Napolitana especial (N.º 10)" data-size="grande" data-price="22000" aria-label="Agregar Napolitana especial (N.º 10) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$18.000</span><button class="add" type="button" data-name="Napolitana especial (N.º 10)" data-size="chica" data-price="18000" aria-label="Agregar Napolitana especial (N.º 10) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">11</span>Roquefort</h3><p>Salsa de tomate, muzzarella, roquefort, orégano y aceitunas negras</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$22.000</span><button class="add" type="button" data-name="Roquefort (N.º 11)" data-size="grande" data-price="22000" aria-label="Agregar Roquefort (N.º 11) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$18.000</span><button class="add" type="button" data-name="Roquefort (N.º 11)" data-size="chica" data-price="18000" aria-label="Agregar Roquefort (N.º 11) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">12</span>Calabresa</h3><p>Salsa de tomate, muzzarella, calabresa, morrones y aceitunas</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$20.000</span><button class="add" type="button" data-name="Calabresa (N.º 12)" data-size="grande" data-price="20000" aria-label="Agregar Calabresa (N.º 12) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$16.000</span><button class="add" type="button" data-name="Calabresa (N.º 12)" data-size="chica" data-price="16000" aria-label="Agregar Calabresa (N.º 12) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">13</span>Siciliana</h3><p>Salsa de tomate, tomates en rodajas, calabresa, ajo, morrones, orégano y aceitunas</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$18.000</span><button class="add" type="button" data-name="Siciliana (N.º 13)" data-size="grande" data-price="18000" aria-label="Agregar Siciliana (N.º 13) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$15.000</span><button class="add" type="button" data-name="Siciliana (N.º 13)" data-size="chica" data-price="15000" aria-label="Agregar Siciliana (N.º 13) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">14</span>Súper picante</h3><p>Salsa de tomate, muzzarella, chorizo colorado, ají molido, orégano, queso gratinado y aceitunas</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$22.000</span><button class="add" type="button" data-name="Súper picante (N.º 14)" data-size="grande" data-price="22000" aria-label="Agregar Súper picante (N.º 14) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$18.000</span><button class="add" type="button" data-name="Súper picante (N.º 14)" data-size="chica" data-price="18000" aria-label="Agregar Súper picante (N.º 14) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">15</span>Provolone</h3><p>Salsa de tomate, muzzarella, jamón, provolone, aceite de oliva, pimienta, ají molido y aceitunas negras</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$22.000</span><button class="add" type="button" data-name="Provolone (N.º 15)" data-size="grande" data-price="22000" aria-label="Agregar Provolone (N.º 15) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$18.000</span><button class="add" type="button" data-name="Provolone (N.º 15)" data-size="chica" data-price="18000" aria-label="Agregar Provolone (N.º 15) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">16</span>Palmitos</h3><p>Salsa de tomate, muzzarella, palmitos, salsa golf, orégano y aceitunas</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$20.000</span><button class="add" type="button" data-name="Palmitos (N.º 16)" data-size="grande" data-price="20000" aria-label="Agregar Palmitos (N.º 16) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$17.000</span><button class="add" type="button" data-name="Palmitos (N.º 16)" data-size="chica" data-price="17000" aria-label="Agregar Palmitos (N.º 16) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">18</span>Hawaiana</h3><p>Salsa de tomate, muzzarella, jamón, rodajas de ananá, morrones, orégano y aceitunas</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$20.000</span><button class="add" type="button" data-name="Hawaiana (N.º 18)" data-size="grande" data-price="20000" aria-label="Agregar Hawaiana (N.º 18) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$17.000</span><button class="add" type="button" data-name="Hawaiana (N.º 18)" data-size="chica" data-price="17000" aria-label="Agregar Hawaiana (N.º 18) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">19</span>Espinaca</h3><p>Espinaca, salsa bechamel y queso gratinado</p></div><div class="prices"><span class="ask">Consultar precio</span></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">20</span>Humita</h3><p>Salsa de humita, tomate, queso gratinado, morrones y aceitunas</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$20.000</span><button class="add" type="button" data-name="Humita (N.º 20)" data-size="grande" data-price="20000" aria-label="Agregar Humita (N.º 20) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$17.000</span><button class="add" type="button" data-name="Humita (N.º 20)" data-size="chica" data-price="17000" aria-label="Agregar Humita (N.º 20) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">21</span>De cancha</h3><p>Salsa de tomate y cebolla de verdeo</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$15.000</span><button class="add" type="button" data-name="De cancha (N.º 21)" data-size="grande" data-price="15000" aria-label="Agregar De cancha (N.º 21) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$13.000</span><button class="add" type="button" data-name="De cancha (N.º 21)" data-size="chica" data-price="13000" aria-label="Agregar De cancha (N.º 21) chica al pedido">+</button></div></div></li>
+      </ul>
+    </section>
+
+    <section class="sec" id="rellenas">
+      <div class="sec-h"><h2>Rellenas y calzones</h2><small>Grande o chica</small></div>
+      <ul class="list">
+<li class="item pz"><div class="info"><h3><span class="num">22</span>Fugazza rellena</h3><p>Muzzarella, tapa de masa, cebolla, queso gratinado, orégano y aceitunas</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$19.000</span><button class="add" type="button" data-name="Fugazza rellena (N.º 22)" data-size="grande" data-price="19000" aria-label="Agregar Fugazza rellena (N.º 22) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$16.000</span><button class="add" type="button" data-name="Fugazza rellena (N.º 22)" data-size="chica" data-price="16000" aria-label="Agregar Fugazza rellena (N.º 22) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">23</span>Fugazzetta rellena especial</h3><p>Igual a la fugazza rellena, más jamón</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$25.000</span><button class="add" type="button" data-name="Fugazzetta rellena especial (N.º 23)" data-size="grande" data-price="25000" aria-label="Agregar Fugazzetta rellena especial (N.º 23) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$20.000</span><button class="add" type="button" data-name="Fugazzetta rellena especial (N.º 23)" data-size="chica" data-price="20000" aria-label="Agregar Fugazzetta rellena especial (N.º 23) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">24</span>Fugazzetta rellena napolitana</h3><p>Muzzarella, tomates en rodajas, ajo, cebolla y orégano</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$28.000</span><button class="add" type="button" data-name="Fugazzetta rellena napolitana (N.º 24)" data-size="grande" data-price="28000" aria-label="Agregar Fugazzetta rellena napolitana (N.º 24) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$25.000</span><button class="add" type="button" data-name="Fugazzetta rellena napolitana (N.º 24)" data-size="chica" data-price="25000" aria-label="Agregar Fugazzetta rellena napolitana (N.º 24) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">25</span>4 quesos</h3><p>Salsa de tomate, muzzarella, tomates en rodajas, roquefort, gruyere, provolone, orégano y aceitunas</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$22.000</span><button class="add" type="button" data-name="4 quesos (N.º 25)" data-size="grande" data-price="22000" aria-label="Agregar 4 quesos (N.º 25) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$18.000</span><button class="add" type="button" data-name="4 quesos (N.º 25)" data-size="chica" data-price="18000" aria-label="Agregar 4 quesos (N.º 25) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">27</span>Champignon</h3><p>Salsa de tomate, muzzarella, cebolla, ketchup, champignon y aceitunas verdes</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$22.000</span><button class="add" type="button" data-name="Champignon (N.º 27)" data-size="grande" data-price="22000" aria-label="Agregar Champignon (N.º 27) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$18.000</span><button class="add" type="button" data-name="Champignon (N.º 27)" data-size="chica" data-price="18000" aria-label="Agregar Champignon (N.º 27) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">28</span>Calzone Brother</h3><p>Muzzarella, jamón, tomates en rodajas, palmitos, morrones, huevo duro y salsa golf</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$25.000</span><button class="add" type="button" data-name="Calzone Brother (N.º 28)" data-size="grande" data-price="25000" aria-label="Agregar Calzone Brother (N.º 28) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$20.000</span><button class="add" type="button" data-name="Calzone Brother (N.º 28)" data-size="chica" data-price="20000" aria-label="Agregar Calzone Brother (N.º 28) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">29</span>Calzone Brother</h3><p>Muzzarella, tomates en rodajas, ajo y queso rallado</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$22.000</span><button class="add" type="button" data-name="Calzone Brother (N.º 29)" data-size="grande" data-price="22000" aria-label="Agregar Calzone Brother (N.º 29) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$18.000</span><button class="add" type="button" data-name="Calzone Brother (N.º 29)" data-size="chica" data-price="18000" aria-label="Agregar Calzone Brother (N.º 29) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">30</span>Calzone italiano especial</h3><p>Igual al N.º 29, más jamón</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$25.000</span><button class="add" type="button" data-name="Calzone italiano especial (N.º 30)" data-size="grande" data-price="25000" aria-label="Agregar Calzone italiano especial (N.º 30) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$20.000</span><button class="add" type="button" data-name="Calzone italiano especial (N.º 30)" data-size="chica" data-price="20000" aria-label="Agregar Calzone italiano especial (N.º 30) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">31</span>Calzone calabresa</h3><p>Muzzarella, tomates en rodajas, morrones y calabresa</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$28.000</span><button class="add" type="button" data-name="Calzone calabresa (N.º 31)" data-size="grande" data-price="28000" aria-label="Agregar Calzone calabresa (N.º 31) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$25.000</span><button class="add" type="button" data-name="Calzone calabresa (N.º 31)" data-size="chica" data-price="25000" aria-label="Agregar Calzone calabresa (N.º 31) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">32</span>Calzone napolitana</h3><p>Tomate, tomates en rodajas y ajo</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$22.000</span><button class="add" type="button" data-name="Calzone napolitana (N.º 32)" data-size="grande" data-price="22000" aria-label="Agregar Calzone napolitana (N.º 32) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$18.000</span><button class="add" type="button" data-name="Calzone napolitana (N.º 32)" data-size="chica" data-price="18000" aria-label="Agregar Calzone napolitana (N.º 32) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">33</span>Calzone napolitana</h3><p>Igual al N.º 32, más jamón y morrones</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$28.000</span><button class="add" type="button" data-name="Calzone napolitana (N.º 33)" data-size="grande" data-price="28000" aria-label="Agregar Calzone napolitana (N.º 33) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$25.000</span><button class="add" type="button" data-name="Calzone napolitana (N.º 33)" data-size="chica" data-price="25000" aria-label="Agregar Calzone napolitana (N.º 33) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">34</span>Calzone primavera</h3><p>Tomate, muzzarella, tomates en rodajas, huevo duro, jamón y queso</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$28.000</span><button class="add" type="button" data-name="Calzone primavera (N.º 34)" data-size="grande" data-price="28000" aria-label="Agregar Calzone primavera (N.º 34) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$25.000</span><button class="add" type="button" data-name="Calzone primavera (N.º 34)" data-size="chica" data-price="25000" aria-label="Agregar Calzone primavera (N.º 34) chica al pedido">+</button></div></div></li>
+<li class="item pz"><div class="info"><h3><span class="num">35</span>Calzone súper picante</h3><p>Muzzarella, tomates, rodajas de chorizo colorado, ajo, ají y pimienta</p></div><div class="prices"><div class="sz"><span class="lbl">Grande</span><span class="amt">$25.000</span><button class="add" type="button" data-name="Calzone súper picante (N.º 35)" data-size="grande" data-price="25000" aria-label="Agregar Calzone súper picante (N.º 35) grande al pedido">+</button></div><div class="sz"><span class="lbl">Chica</span><span class="amt">$20.000</span><button class="add" type="button" data-name="Calzone súper picante (N.º 35)" data-size="chica" data-price="20000" aria-label="Agregar Calzone súper picante (N.º 35) chica al pedido">+</button></div></div></li>
+      </ul>
+    </section>
+
+    <section class="sec" id="empanadas">
+      <div class="sec-h"><h2>Empanadas y fainá</h2><small>Precio por unidad</small></div>
+      <ul class="list">
+<li class="item sm"><h3>Carne</h3><span class="dots" aria-hidden="true"></span><span class="amt">$2.200</span><button class="add" type="button" data-name="Carne" data-size="" data-price="2200" aria-label="Agregar Carne  al pedido">+</button></li>
+<li class="item sm"><h3>Pollo</h3><span class="dots" aria-hidden="true"></span><span class="amt">$2.200</span><button class="add" type="button" data-name="Pollo" data-size="" data-price="2200" aria-label="Agregar Pollo  al pedido">+</button></li>
+<li class="item sm"><h3>Jamón y queso</h3><span class="dots" aria-hidden="true"></span><span class="amt">$2.200</span><button class="add" type="button" data-name="Jamón y queso" data-size="" data-price="2200" aria-label="Agregar Jamón y queso  al pedido">+</button></li>
+<li class="item sm"><h3>Roquefort y apio</h3><span class="dots" aria-hidden="true"></span><span class="amt">$2.200</span><button class="add" type="button" data-name="Roquefort y apio" data-size="" data-price="2200" aria-label="Agregar Roquefort y apio  al pedido">+</button></li>
+<li class="item sm"><h3>Humita</h3><span class="dots" aria-hidden="true"></span><span class="amt">$2.200</span><button class="add" type="button" data-name="Humita" data-size="" data-price="2200" aria-label="Agregar Humita  al pedido">+</button></li>
+<li class="item sm"><h3>Cebolla y queso</h3><span class="dots" aria-hidden="true"></span><span class="amt">$2.200</span><button class="add" type="button" data-name="Cebolla y queso" data-size="" data-price="2200" aria-label="Agregar Cebolla y queso  al pedido">+</button></li>
+<li class="item sm"><h3>Verdura</h3><span class="dots" aria-hidden="true"></span><span class="amt">$2.200</span><button class="add" type="button" data-name="Verdura" data-size="" data-price="2200" aria-label="Agregar Verdura  al pedido">+</button></li>
+<li class="item sm"><h3>Tartita de verdura</h3><span class="dots" aria-hidden="true"></span><span class="amt">$4.000</span><button class="add" type="button" data-name="Tartita de verdura" data-size="" data-price="4000" aria-label="Agregar Tartita de verdura  al pedido">+</button></li>
+<li class="item sm"><h3>Tartita de jamón y queso</h3><span class="dots" aria-hidden="true"></span><span class="amt">$4.000</span><button class="add" type="button" data-name="Tartita de jamón y queso" data-size="" data-price="4000" aria-label="Agregar Tartita de jamón y queso  al pedido">+</button></li>
+<li class="item sm"><h3>Docena de empanadas</h3><span class="dots" aria-hidden="true"></span><span class="amt">$26.000</span><button class="add" type="button" data-name="Docena de empanadas" data-size="" data-price="26000" aria-label="Agregar Docena de empanadas  al pedido">+</button></li>
+<li class="item sm"><h3>Fainá (porción)</h3><span class="dots" aria-hidden="true"></span><span class="amt">$1.800</span><button class="add" type="button" data-name="Fainá (porción)" data-size="" data-price="1800" aria-label="Agregar Fainá (porción)  al pedido">+</button></li>
+      </ul>
+    </section>
+
+    <section class="more" id="mas">
+      <h2>Y mucho más para el almuerzo y la cena</h2>
+      <p>Milanesas, minutas, pastas caseras y platos del día. Muy pronto, todo en esta carta.</p>
+      <ul><li>Milanesas</li><li>Supremas</li><li>Minutas</li><li>Pastas caseras</li><li>Platos calientes</li><li>Platos fríos</li><li>Ensaladas</li><li>Omelettes</li><li>Tortillas</li><li>Menú vegetariano</li><li>Sándwiches</li><li>Papas</li><li>Pescados</li><li>Pollo</li><li>Cerdo</li><li>Bebidas</li></ul>
+    </section>
+
+    <section class="sec" id="pedir">
+      <div class="sec-h"><h2>Cómo pedir</h2></div>
+      <ul class="how">
+        <li><b>Delivery</b><span>Sin cargo dentro de Barracas. Armá el pedido acá y mandalo por WhatsApp.</span></li>
+        <li><b>Take away</b><span>Pedí por WhatsApp o por teléfono y pasá a retirarlo por el local.</span></li>
+        <li><b>En el local</b><span>Vení a comer a Av. Vieytes 1273. Escaneá el QR de tu mesa para ver la carta.</span></li>
+      </ul>
+      <div class="datos">
+        <div><h3>Teléfonos</h3><a href="tel:+541143038606">4303-8606</a><br><a href="tel:+541143011879">4301-1879</a><br><a href="https://wa.me/5491169703006" target="_blank" rel="noopener">11 6970-3006 (WhatsApp)</a></div>
+        <div><h3>Horarios</h3>Todos los días<br>11:30 a 16 h<br>19:30 a 00 h</div>
+        <div><h3>Dirección</h3>Av. Vieytes 1273, Barracas<br><a href="https://www.google.com/maps/search/?api=1&query=Av.+Vieytes+1273+Barracas+CABA" target="_blank" rel="noopener">Cómo llegar</a></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Pizza Brother · Pizza a la piedra · Barracas, CABA</span>
+    <span>Diseño web: <a href="https://pazstudio.com.ar" target="_blank" rel="noopener">Paz Studio</a></span>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5491169703006?text=Hola%20Pizza%20Brother!" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg></a>
+
+<div class="bar" id="bar" role="region" aria-label="Tu pedido">
+  <div class="t">Tu pedido · <span id="count">0</span><b id="sum">$0</b></div>
+  <button class="btn btn-or" type="button" id="open">Ver pedido</button>
+</div>
+
+<dialog id="sheet" aria-labelledby="sheet-t">
+  <form class="sheet" id="form" method="dialog">
+    <div class="sheet-h"><h2 id="sheet-t">Tu pedido</h2><button class="x" type="button" id="close" aria-label="Cerrar">×</button></div>
+    <ul class="lines" id="lines"></ul>
+    <div class="total"><span>Total</span><span id="total">$0</span></div>
+    <div class="seg" role="radiogroup" aria-label="Forma de entrega">
+      <label><input type="radio" name="modo" value="Delivery" checked><span>Delivery</span></label>
+      <label><input type="radio" name="modo" value="Retiro en el local"><span>Retiro en el local</span></label>
+    </div>
+    <div class="field"><label for="nombre">Tu nombre</label><input id="nombre" autocomplete="name" required></div>
+    <div class="field" id="dir-f"><label for="dir">Dirección de entrega (Barracas)</label><input id="dir" autocomplete="street-address" placeholder="Calle, número, piso y depto"></div>
+    <div class="field"><label for="obs">Aclaraciones (opcional)</label><textarea id="obs" rows="2" placeholder="Ej: sin aceitunas, tocar timbre 3B, pago con $20.000"></textarea></div>
+    <button class="btn btn-or" type="submit" id="send">Enviar pedido por WhatsApp</button>
+    <p class="note">Te abrimos WhatsApp con el pedido armado. Los precios se confirman al responderte.</p>
+  </form>
+</dialog>
+
+<script>
+(function(){
+  var WA="5491169703006", cart=[];
+  var $=function(s){return document.querySelector(s)};
+  var fmt=function(n){return "$"+n.toLocaleString("es-AR")};
+
+  // abierto / cerrado (hora de Buenos Aires)
+  try{
+    var p=new Intl.DateTimeFormat("es-AR",{timeZone:"America/Argentina/Buenos_Aires",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date());
+    var h=+p.find(function(x){return x.type==="hour"}).value, m=+p.find(function(x){return x.type==="minute"}).value, t=h*60+m;
+    var open=(t>=690&&t<960)||(t>=1170);
+    var st=$("#status"); st.classList.toggle("open",open);
+    st.lastElementChild.textContent=open?"Abierto ahora":(t<690?"Abrimos a las 11:30":"Abrimos a las 19:30");
+  }catch(e){}
+
+  function render(){
+    var n=0,s=0; cart.forEach(function(i){n+=i.q;s+=i.q*i.p});
+    $("#count").textContent=n+(n===1?" producto":" productos");
+    $("#sum").textContent=fmt(s); $("#total").textContent=fmt(s);
+    $("#bar").classList.toggle("show",n>0); document.body.classList.toggle("has-cart",n>0);
+    $("#lines").innerHTML=cart.map(function(i,k){
+      return '<li class="line"><span class="n">'+i.n+(i.z?' <small>'+i.z+'</small>':'')+'</span><span class="qty"><button type="button" data-k="'+k+'" data-d="-1" aria-label="Quitar uno">−</button><span>'+i.q+'</span><button type="button" data-k="'+k+'" data-d="1" aria-label="Agregar uno">+</button></span><span class="amt">'+fmt(i.q*i.p)+'</span></li>';
+    }).join("");
+    if(!n&&$("#sheet").open)$("#sheet").close();
+  }
+
+  document.addEventListener("click",function(e){
+    var b=e.target.closest(".add"); if(!b)return;
+    var n=b.dataset.name,z=b.dataset.size,pr=+b.dataset.price;
+    var f=cart.find(function(i){return i.n===n&&i.z===z});
+    f?f.q++:cart.push({n:n,z:z,p:pr,q:1});
+    b.classList.remove("pop"); void b.offsetWidth; b.classList.add("pop");
+    render();
+  });
+  $("#lines").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b)return;
+    var i=cart[+b.dataset.k]; i.q+=+b.dataset.d; if(i.q<1)cart.splice(+b.dataset.k,1); render();
+  });
+  $("#open").addEventListener("click",function(){ $("#sheet").showModal(); });
+  $("#close").addEventListener("click",function(){ $("#sheet").close(); });
+  document.querySelectorAll('input[name="modo"]').forEach(function(r){
+    r.addEventListener("change",function(){ $("#dir-f").style.display=r.value==="Delivery"&&r.checked?"":"none"; if(r.value!=="Delivery"&&r.checked)$("#dir-f").style.display="none"; });
+  });
+  $("#form").addEventListener("submit",function(e){
+    e.preventDefault();
+    var modo=document.querySelector('input[name="modo"]:checked').value, dir=$("#dir").value.trim();
+    if(modo==="Delivery"&&!dir){ $("#dir").focus(); return; }
+    var s=0, l=cart.map(function(i){ s+=i.q*i.p; return "• "+i.q+" x "+i.n+(i.z?" ("+i.z+")":"")+" — "+fmt(i.q*i.p); });
+    var msg="¡Hola Pizza Brother! Quiero hacer este pedido:\n\n"+l.join("\n")+"\n\nTotal: "+fmt(s)+"\nEntrega: "+modo+(modo==="Delivery"?"\nDirección: "+dir:"")+"\nNombre: "+$("#nombre").value.trim()+($("#obs").value.trim()?"\nAclaraciones: "+$("#obs").value.trim():"");
+    window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(msg),"_blank","noopener");
+  });
+
+  // buscador
+  $("#q").addEventListener("input",function(){
+    var q=this.value.trim().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""), any=false;
+    document.querySelectorAll(".item,.combo").forEach(function(li){
+      var ok=!q||li.textContent.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").indexOf(q)>-1;
+      li.style.display=ok?"":"none"; if(ok)any=true;
+    });
+    document.querySelectorAll("#combos,#pizzas,#rellenas,#empanadas").forEach(function(s){
+      s.style.display=[].some.call(s.querySelectorAll(".item,.combo"),function(li){return li.style.display!=="none"})?"":"none";
+    });
+    $("#noresult").style.display=any?"none":"block";
+  });
+
+  // categoría activa
+  var links=document.querySelectorAll(".cats a");
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){ if(en.isIntersecting){ links.forEach(function(a){ var on=a.getAttribute("href")==="#"+en.target.id; a.classList.toggle("on",on); if(on)a.parentNode.scrollTo({left:a.offsetLeft-a.parentNode.clientWidth/2+a.offsetWidth/2,behavior:"smooth"}); }); } });},{rootMargin:"-45% 0px -50% 0px"});
+    document.querySelectorAll("#combos,#pizzas,#rellenas,#empanadas,#mas,#pedir").forEach(function(s){io.observe(s)});
+  }
+  var wf=document.querySelector('.wa-float');
+  addEventListener('scroll',function(){wf.classList.toggle('show',scrollY>innerHeight*.8)},{passive:true});
+  render();
+})();
+</script>
+</body>
+</html>
