@@ -164,6 +164,23 @@ dialog::backdrop{background:rgba(27,23,20,.5)}
 .field input,.field textarea{width:100%;border-radius:12px;border:1.5px solid var(--line);background:#fff;padding:12px 14px;font:inherit}
 .field input:focus,.field textarea:focus{outline:none;border-color:var(--or)}
 .note{font-size:13px;color:var(--soft)}
+.vaciar{justify-self:start;background:none;border:0;color:var(--or-d);font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:3px;padding:4px 0}
+.vaciar:hover{color:var(--ink)}
+
+/* animaciones (suaves; se apagan si el celular tiene "reducir movimiento") */
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes flota{50%{transform:translateY(-8px)}}
+@keyframes bump{40%{transform:scale(1.12)}}
+.hero .badge,.hero h1,.hero .lead,.hero .ctas,.hero .facts{animation:up .7s cubic-bezier(.2,.7,.2,1) both}
+.hero h1{animation-delay:.08s}.hero .lead{animation-delay:.16s}.hero .ctas{animation-delay:.24s}.hero .facts{animation-delay:.32s}
+.hero-logo{animation:up .8s .1s cubic-bezier(.2,.7,.2,1) both}
+.dots-bg circle{animation:flota 4s ease-in-out infinite}
+.dots-bg circle:nth-child(2n){animation-duration:5s;animation-delay:-1.3s}
+.dots-bg circle:nth-child(3n){animation-delay:-2.6s}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+#sum{transform-origin:left center}
+.bump{animation:bump .4s}
 
 @media (min-width:760px){
   body{padding-bottom:40px}
@@ -350,6 +367,7 @@ dialog::backdrop{background:rgba(27,23,20,.5)}
   <form class="sheet" id="form" method="dialog">
     <div class="sheet-h"><h2 id="sheet-t">Tu pedido</h2><button class="x" type="button" id="close" aria-label="Cerrar">×</button></div>
     <ul class="lines" id="lines"></ul>
+    <button class="vaciar" type="button" id="vaciar">Vaciar pedido</button>
     <div class="total"><span>Total</span><span id="total">$0</span></div>
     <div class="seg" role="radiogroup" aria-label="Forma de entrega">
       <label><input type="radio" name="modo" value="Delivery" checked><span>Delivery</span></label>
@@ -396,6 +414,10 @@ dialog::backdrop{background:rgba(27,23,20,.5)}
     f?f.q++:cart.push({n:n,z:z,p:pr,q:1});
     b.classList.remove("pop"); void b.offsetWidth; b.classList.add("pop");
     render();
+    var sm=$("#sum"); sm.classList.remove("bump"); void sm.offsetWidth; sm.classList.add("bump");
+  });
+  $("#vaciar").addEventListener("click",function(){
+    if(confirm("¿Querés vaciar todo el pedido?")){ cart=[]; render(); }
   });
   $("#lines").addEventListener("click",function(e){
     var b=e.target.closest("button"); if(!b)return;
@@ -434,6 +456,14 @@ dialog::backdrop{background:rgba(27,23,20,.5)}
     var io=new IntersectionObserver(function(es){es.forEach(function(en){ if(en.isIntersecting){ links.forEach(function(a){ var on=a.getAttribute("href")==="#"+en.target.id; a.classList.toggle("on",on); if(on)a.parentNode.scrollTo({left:a.offsetLeft-a.parentNode.clientWidth/2+a.offsetWidth/2,behavior:"smooth"}); }); } });},{rootMargin:"-45% 0px -50% 0px"});
     document.querySelectorAll("#combos,#pizzas,#rellenas,#empanadas,#mas,#pedir").forEach(function(s){io.observe(s)});
   }
+  // aparición suave al hacer scroll (si falla el JS, todo se ve igual)
+  var rm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(!rm&&"IntersectionObserver" in window){
+    var ro=new IntersectionObserver(function(es){es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); ro.unobserve(en.target); } });},{rootMargin:"0px 0px -8% 0px"});
+    document.querySelectorAll(".sec-h,.combo,.list,.more,.how li,.datos div").forEach(function(el){ el.classList.add("rv"); ro.observe(el); });
+    document.querySelectorAll(".combo").forEach(function(c,i){ c.style.transitionDelay=(i%4)*70+"ms"; });
+  }
+
   var wf=document.querySelector('.wa-float');
   addEventListener('scroll',function(){wf.classList.toggle('show',scrollY>innerHeight*.8)},{passive:true});
   render();
